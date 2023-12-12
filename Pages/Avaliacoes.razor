@@ -1,0 +1,13 @@
+﻿@page "/avaliacoes"
+@attribute [Authorize(Roles = "Administrator, User")]
+@using TCD.Data
+@using TCD.Authentication
+@inject PerguntaServices service
+@inject NavigationManager navigationManager
+@inject IJSRuntime js
+
+<PageTitle>Avaliações</PageTitle>
+
+<h1>Avaliações</h1><br>
+
+

@@ -1,0 +1,81 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TCD
+build_property.RootNamespace = TCD
+build_property.ProjectDir = C:\Users\flawy\Meu Drive\IFNMG - CC\5° Periodo\Desenvolvimento .NET\TCD\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\flawy\Meu Drive\IFNMG - CC\5° Periodo\Desenvolvimento .NET\TCD
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Pages/Avaliacoes.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXZhbGlhY29lcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Pages/Cadastro.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FkYXN0cm8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Pages/CadPerguntas.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FkUGVyZ3VudGFzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Pages/Configuracoes.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uZmlndXJhY29lcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Pages/FormAplicado.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRm9ybUFwbGljYWRvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Pages/Formulario.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRm9ybXVsYXJpby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Pages/Relatorio.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVsYXRvcmlvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-rujtkmg246
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-avurnxtbl7
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/flawy/Meu Drive/IFNMG - CC/5° Periodo/Desenvolvimento .NET/TCD/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

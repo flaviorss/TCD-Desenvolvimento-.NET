@@ -1,0 +1,37 @@
+@page "/cadperguntas"
+@attribute [Authorize(Roles = "Administrator")]
+@using TCD.Data
+@inject IJSRuntime js
+@inject PerguntaServices service
+
+<PageTitle>Cadastro de Perguntas</PageTitle>
+
+<h1>Cadastro de Perguntas</h1><br>
+
+<div class="row">
+    <div class="col-lg-5 pt-4 pb-4 border">
+        <div class="mb-3">
+            <label>Informe a Pergunta</label>
+            <input @bind="@pergunta.Texto" type="text" class="form-control" autofocus/>
+        </div>
+        <div class="mb-3 text-center gap-2">
+            <button @onclick="CadastraPergunta" type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    public Pergunta pergunta { get; set; } = new ();
+
+    private async Task CadastraPergunta(){
+        if(pergunta.Texto != null){
+            await service.AddPerguntaAsync(pergunta);
+            await js.InvokeVoidAsync("alert", "Pergunta cadastrada com sucesso!");
+            pergunta = new Pergunta();
+        }else{
+            await js.InvokeVoidAsync("alert", "Digite a pergunta que deseja cadastrar!");
+            return;
+        }
+    }
+}

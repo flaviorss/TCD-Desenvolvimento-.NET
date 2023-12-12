@@ -1,0 +1,93 @@
+@page "/formaplicado"
+@attribute [Authorize(Roles = "Administrator")]
+@using TCD.Data
+@inject PerguntaServices service
+@inject NavigationManager navigationManager
+@inject IJSRuntime js
+
+<PageTitle>Formulário Aplicado</PageTitle>
+
+<h1>Formulário Aplicado</h1><br>
+
+<div class="container-fluid">
+
+    <div class="row bg-light">
+        <table class="table table-bordered">
+            <thead class="thead-dark" style="background-color: #D3D3D3">
+                <tr>
+                    <th>Pergunta</th>
+                    <th class="text-center">Condição</th>
+                    <th class="text-center">Exclusão</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Perguntas.Any())
+                {
+                    @foreach (var perg in Perguntas)
+                    {
+                        <tr>
+                            <td>@perg.Texto</td>
+                            <td class="text-center">
+                                @if(perg.Selecionado == 0){
+                                    <button  class="btn btn-danger" @onclick="( () =>AlteraCondicao(perg, 1))" 
+                                        style="padding-right: 40%;">&#8203;</button>
+                                }
+                                else{
+                                    <button  class="btn btn-success" @onclick="( () =>AlteraCondicao(perg, 0))" 
+                                        style="padding-right: 40%;">&#8203;</button>
+                                }
+                            </td>
+                            <td class="text-center"> 
+                                <button  class="btn btn-outline-danger" @onclick="( () =>ApagaPergunta(perg))">Deletar</button>
+                            </td>
+                            <!--<td class="text-center">
+                                <button class="btn btn-secondary" @onclick="( ()=>NavegarParaEditar(prod))">Editar</button>
+                            </td>-->
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr><td colspan="3"><strong>Nenhuma pergunta cadastrada</strong></td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+
+    List<Pergunta> Perguntas = new List<Pergunta>();
+    
+    protected override async Task OnInitializedAsync(){
+        await AtualizaPerguntas();
+    }
+
+    private async Task AtualizaPerguntas(){
+        Perguntas = await service.RetornaPerguntaAsync();
+    }
+
+    private async Task ApagaPergunta(Pergunta perg){
+        bool confirmed = await js.InvokeAsync<bool>("confirm", "Deseja deletar essa pergunta?");
+        if(confirmed){
+            await service.DeletePerguntaAsync(perg);
+            await AtualizaPerguntas();
+            await js.InvokeVoidAsync("alert", "Pergunta excluida com sucesso!");
+        } 
+    }
+
+    private async Task AlteraCondicao(Pergunta perg, int valor){
+        bool confirmed;
+        if(valor == 1){
+            confirmed = await js.InvokeAsync<bool>("confirm", "Deseja selecionar essa pergunta para o Formulário Aplicado?");
+        }else{
+            confirmed = await js.InvokeAsync<bool>("confirm", "Deseja remover essa pergunta do Formulário Aplicado?");
+        }
+        
+        if(confirmed){
+            await service.UpdateCondicaoAsync(perg, valor);
+            await AtualizaPerguntas();
+        }
+    }
+    
+}

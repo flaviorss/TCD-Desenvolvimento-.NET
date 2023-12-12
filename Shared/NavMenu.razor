@@ -1,0 +1,107 @@
+﻿@using TCD.Authentication
+@inherits LayoutComponentBase
+@inject AuthenticationStateProvider authStateProvider
+@inject NavigationManager navManager
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <AuthorizeView>
+        <Authorized>
+            <div class="container-fluid">
+                <a class="navbar-brand" href=""> <img id="icon-usuario" width="35"
+                        src="https://img.icons8.com/pastel-glyph/64/FFFFFF/user-male-circle.png" />
+                    <span class="nomeUser">@context.User.Identity.Name</span></a>
+                <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </Authorized>
+    </AuthorizeView>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <AuthorizeView Roles="Administrator">
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="formaplicado">
+                        <span class="oi oi-aperture" aria-hidden="true"></span> Formulário Aplicado
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="cadperguntas">
+                        <span class="oi oi-plus" aria-hidden="true"></span> Cadastro de Perguntas
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="relatorio">
+                        <span class="oi oi-bar-chart" aria-hidden="true"></span> Relatório
+                    </NavLink>
+                </div>
+            </Authorized>
+        </AuthorizeView>
+        <AuthorizeView Roles="User">
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="formulario">
+                        <span class="oi oi-clipboard" aria-hidden="true"></span> Formulário
+                    </NavLink>
+                </div>
+            </Authorized>
+        </AuthorizeView>
+        <AuthorizeView Roles="Administrator, User">
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="avaliacoes">
+                        <span class="oi oi-star" aria-hidden="true"></span> Avaliações
+                    </NavLink>
+                </div>
+                <!--<div class="nav-item px-3">
+                    <NavLink class="nav-link" href="configuracoes">
+                        <span class="oi oi-cog" aria-hidden="true"></span> Configurações
+                    </NavLink>
+                </div>-->
+            </Authorized>
+        </AuthorizeView>
+        <AuthorizeView>
+            <Authorized>
+                <!--<a @onclick="Logout" href="">Logout</a>-->
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" @onclick="Logout" href="">
+                        <span class="oi oi-account-logout" aria-hidden="true"></span> Logout
+                    </NavLink>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <!--<a href="/login" class="link-login">Login</a>-->
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="/login">
+                        <span class="oi oi-account-login" aria-hidden="true"></span> Login
+                    </NavLink>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private async Task Logout()
+    {
+        var customAuthStateProvider = (CustomAuthenticationStateProvider)authStateProvider;
+        await customAuthStateProvider.UpdateAuthenticationState(null);
+        navManager.NavigateTo("/login", true);
+    }
+}
